@@ -1,0 +1,607 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wellnest — Feel Better. Move Freely. Live Pain-Free.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="{% static 'css/style.css' %}?v=16">
+</head>
+<body id="top">
+
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert-banner {{ message.tags }}">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+<!-- ===================== MOBILE NAV ===================== -->
+<div class="mobile-nav">
+  <div class="mobile-nav-top">
+    <a href="#top" class="brand-logo" aria-label="Sewa By Himalayan Healers — home"><img src="{% static 'image/logo.png' %}" alt="Sewa By Himalayan Healers"></a>
+    <button class="mobile-nav-close" aria-label="Close menu">&times;</button>
+  </div>
+  <a href="#about">About</a>
+  <a href="#wellness">Wellness</a>
+  <a href="#services">Services</a>
+  <a href="#offers">Offers</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ===================== HEADER (sticky, overlays hero) ===================== -->
+<div class="site-header hero-header nav-on-dark">
+  <div class="container">
+    <nav class="nav-bar">
+      <a href="#top" class="brand-logo" aria-label="Sewa By Himalayan Healers — home"><img src="{% static 'image/logo.png' %}" alt="Sewa By Himalayan Healers"></a>
+      <div class="nav-links">
+        <a href="#about" class="active">About Us</a>
+        <a href="#wellness">Membership</a>
+        <a href="#services">Blog</a>
+        <a href="#offers">Careers</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <a href="#contact" class="btn btn-light btn-sm">Book Your Session</a>
+        <button class="nav-toggle" aria-label="Open menu"><span></span></button>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- ===================== HERO (pinned while Services overlay slides over it) ===================== -->
+<div class="hero-pin-stage">
+<header class="hero">
+  <div class="hero-media">
+    <img class="hero-media-bg" src="{% static 'image/hero.png' %}" alt="" aria-hidden="true">
+    <img class="hero-media-photo" src="{% static 'image/hero.png' %}" alt="Nepali therapist giving a therapeutic massage in a Himalayan spa setting" width="1160" height="1355" fetchpriority="high">
+  </div>
+
+  <div class="hero-dots"><span></span><span></span><span></span><span></span></div>
+
+  <div class="hero-content">
+    <div class="hero-copy reveal">
+      <h1>Feel Better. Move<br><span class="serif">Freely. Live Pain-Free.</span></h1>
+      <p>Personalized therapeutic massage designed to reduce pain, relieve stress, and restore your body's natural balance — delivered by highly trained therapists.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-light">Book Your Session</a>
+        <a href="#services" class="btn btn-outline">Explore Treatments</a>
+      </div>
+      <div class="hero-rating">
+        <span class="avatars"><span></span><span></span><span></span><span></span></span>
+        <span><span data-count="15" data-suffix="k+">0</span> Satisfied Customers</span>
+        <span class="stars">★★★★★</span> <span>4.9</span>
+      </div>
+    </div>
+
+    <div class="hero-testimonial-card reveal">
+      <img src="{% static 'image/testimonial-1.jpg' %}" alt="Client portrait">
+      <p>"A premium wellness experience designed for your body's needs and immunity."</p>
+    </div>
+  </div>
+
+  <div class="hero-indicators"><span class="active"></span><span></span><span></span></div>
+</header>
+</div>
+
+<!-- ===================== TRUST STRIP (slides up + overlaps hero on scroll) ===================== -->
+<div class="hero-overlap-stage">
+<section class="trust-strip section-tight">
+  <div class="trust-marquee-wrap">
+    <div class="trust-marquee-track">
+      <!-- First set -->
+      <span class="brand-mark">
+        <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><text x="0" y="15" font-family="Georgia,serif" font-size="14" font-weight="700">FORBES</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><text x="0" y="15" font-family="Georgia,serif" font-size="14" font-weight="700">WSJ</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark brand-mark--revoza">
+        <svg viewBox="0 0 80 22" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="11" cy="11" r="5" fill="currentColor" opacity=".35"/><text x="25" y="15" font-family="Georgia,serif" font-size="13" font-weight="600" fill="currentColor">Revoza</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark brand-mark--ny">
+        <svg viewBox="0 0 100 22" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><text x="0" y="13" font-family="Georgia,serif" font-size="10" font-weight="700" letter-spacing="1">NEW YORK</text><text x="0" y="22" font-family="Georgia,serif" font-size="7" letter-spacing="2">UNITED STATES OF AMERICA</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark brand-mark--quantum">
+        <svg viewBox="0 0 110 22" xmlns="http://www.w3.org/2000/svg"><path d="M8 4 L14 11 L8 18 M4 11 h20" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/><text x="30" y="15" font-family="Georgia,serif" font-size="13" font-weight="700" fill="currentColor" letter-spacing="1">QUANTUM</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark">
+        <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><text x="0" y="15" font-family="Georgia,serif" font-size="14" font-weight="700" letter-spacing="2">VOGUE</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark brand-mark--refinery">
+        <svg viewBox="0 0 90 22" xmlns="http://www.w3.org/2000/svg"><path d="M4 11 L10 4 L10 18" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="18" y="15" font-family="Georgia,serif" font-size="12" font-weight="700" fill="currentColor">Refinery</text></svg>
+      </span>
+
+      <!-- Duplicate set for seamless loop -->
+      <span class="brand-mark">
+        <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><text x="0" y="15" font-family="Georgia,serif" font-size="14" font-weight="700">FORBES</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><text x="0" y="15" font-family="Georgia,serif" font-size="14" font-weight="700">WSJ</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark brand-mark--revoza">
+        <svg viewBox="0 0 80 22" xmlns="http://www.w3.org/2000/svg"><circle cx="11" cy="11" r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="11" cy="11" r="5" fill="currentColor" opacity=".35"/><text x="25" y="15" font-family="Georgia,serif" font-size="13" font-weight="600" fill="currentColor">Revoza</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark brand-mark--ny">
+        <svg viewBox="0 0 100 22" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><text x="0" y="13" font-family="Georgia,serif" font-size="10" font-weight="700" letter-spacing="1">NEW YORK</text><text x="0" y="22" font-family="Georgia,serif" font-size="7" letter-spacing="2">UNITED STATES OF AMERICA</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark brand-mark--quantum">
+        <svg viewBox="0 0 110 22" xmlns="http://www.w3.org/2000/svg"><path d="M8 4 L14 11 L8 18 M4 11 h20" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/><text x="30" y="15" font-family="Georgia,serif" font-size="13" font-weight="700" fill="currentColor" letter-spacing="1">QUANTUM</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark">
+        <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><text x="0" y="15" font-family="Georgia,serif" font-size="14" font-weight="700" letter-spacing="2">VOGUE</text></svg>
+      </span>
+      <span class="trust-dot">✦</span>
+      <span class="brand-mark brand-mark--refinery">
+        <svg viewBox="0 0 90 22" xmlns="http://www.w3.org/2000/svg"><path d="M4 11 L10 4 L10 18" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="18" y="15" font-family="Georgia,serif" font-size="12" font-weight="700" fill="currentColor">Refinery</text></svg>
+      </span>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ===================== MASSAGE TREATMENTS ===================== -->
+<section id="services">
+  <div class="container">
+    <div class="treatments-top">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Services</span>
+        <h2>Massage <span class="accent">Treatments Designed</span><br>Around You</h2>
+      </div>
+      <div style="max-width:340px;" class="reveal">
+        <p style="margin-bottom:20px;">Whether you're recovering from muscle strain, managing chronic pain, or simply taking time to recharge, our customized therapies help you feel your best.</p>
+        <a href="#services" class="btn btn-outline">Explore Treatments</a>
+      </div>
+    </div>
+
+    <div class="treatments-carousel" role="region" aria-roledescription="carousel" aria-label="Massage treatments">
+      <div class="treatments-grid treatments-track">
+      <div class="treatment-card reveal">
+        <div class="treatment-media">
+          <img src="{% static 'image/booking.jpg' %}" alt="Deep tissue massage treatment" draggable="false">
+          <span class="treatment-badge">♡</span>
+        </div>
+        <div class="treatment-body">
+          <h3>Gentle Therapeutic Massage</h3>
+          <p>Intensive therapy for chronic pain relief and muscle tension</p>
+          <div class="price-row">
+            <span class="price">$120</span>
+            <span>60 min</span>
+          </div>
+          <a href="#contact" class="btn btn-outline btn-block btn-sm">Book Now</a>
+        </div>
+      </div>
+
+      <div class="treatment-card featured reveal">
+        <div class="treatment-media">
+          <img src="{% static 'image/hero.png' %}" alt="Relaxation massage in a warm spa room">
+          <span class="treatment-badge">☺</span>
+        </div>
+        <div class="treatment-body">
+          <h3>Elder Wellness and Comfort Care</h3>
+          <p>Targeted treatment for stress relief and muscle recovery</p>
+          <div class="price-row">
+            <span class="price">$100</span>
+            <span>50 min</span>
+          </div>
+          <a href="#contact" class="btn btn-light btn-block btn-sm">Book Now</a>
+        </div>
+      </div>
+
+      <div class="treatment-card reveal">
+        <div class="treatment-media">
+          <img src="{% static 'image/booking.jpg' %}" alt="Sports recovery massage session">
+          <span class="treatment-badge">⚡</span>
+        </div>
+        <div class="treatment-body">
+          <h3>Pain Relief Massage</h3>
+          <p>Specialized massage for athletes and active individuals</p>
+          <div class="price-row">
+            <span class="price">$130</span>
+            <span>60 min</span>
+          </div>
+          <a href="#contact" class="btn btn-outline btn-block btn-sm">Book Now</a>
+        </div>
+      </div>
+
+      <div class="treatment-card">
+        <div class="treatment-media">
+          <img src="{% static 'image/hero.png' %}" alt="Relaxation massage in a warm spa room" draggable="false">
+          <span class="treatment-badge">☺</span>
+        </div>
+        <div class="treatment-body">
+          <h3>Mobility Support Care</h3>
+          <p>Targeted treatment for stress relief and muscle recovery</p>
+          <div class="price-row">
+            <span class="price">$100</span>
+            <span>50 min</span>
+          </div>
+          <a href="#contact" class="btn btn-outline btn-block btn-sm">Book Now</a>
+        </div>
+      </div>
+
+      <div class="treatment-card">
+        <div class="treatment-media">
+          <img src="{% static 'image/hero.png' %}" alt="Relaxation massage in a warm spa room" draggable="false">
+          <span class="treatment-badge">☺</span>
+        </div>
+        <div class="treatment-body">
+          <h3>Stress and Relaxation Therapy</h3>
+          <p>Targeted treatment for stress relief and muscle recovery</p>
+          <div class="price-row">
+            <span class="price">$100</span>
+            <span>50 min</span>
+          </div>
+          <a href="#contact" class="btn btn-outline btn-block btn-sm">Book Now</a>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="treatments-nav">
+      <div class="carousel-dots" data-group="treatments"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERT CARE ===================== -->
+<section id="about" class="bg-cream">
+  <div class="container">
+    <div class="care-grid">
+      <div class="care-left reveal">
+        <span class="eyebrow">Our Core Features</span>
+        <h2>Expert Care That Goes<br><span class="accent">Beyond Relaxation</span></h2>
+        <p>Every treatment is tailored to your body's needs using evidence-based techniques that promote recovery, improve mobility, and support long-term wellness.</p>
+        <a href="#services" class="btn btn-outline">All Views</a>
+        <div class="care-image">
+          <img src="{% static 'image/therapist-1.jpg' %}" alt="Wellness therapist applying warm oil during a treatment">
+        </div>
+      </div>
+
+      <div class="care-right reveal">
+        <ul class="feature-list">
+          <li class="feature-item">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 5 5.6.8-4 4 1 5.6L12 15l-5 2.4 1-5.6-4-4 5.6-.8z"/></svg></span>
+            <div class="feature-text"><h3>Licensed Therapists</h3><p>Highly trained professionals with years of experience in therapeutic care.</p></div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9C1 8 3 4 7 4c2 0 4 1.5 5 3 1-1.5 3-3 5-3 4 0 6 4 4.5 8-2.5 4.5-9.5 9-9.5 9z"/></svg></span>
+            <div class="feature-text"><h3>Customized Care</h3><p>Every treatment is tailored to your body's specific needs and goals.</p></div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
+            <div class="feature-text"><h3>Flexible Scheduling</h3><p>Convenient appointment times that fit your busy lifestyle.</p></div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/></svg></span>
+            <div class="feature-text"><h3>Membership Benefits</h3><p>Exclusive savings and priority scheduling for regular clients.</p></div>
+          </li>
+          <li class="feature-item">
+            <span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19h16M4 15l4-6 4 3 4-8 4 6"/></svg></span>
+            <div class="feature-text"><h3>Science-Based Treatments</h3><p>Evidence-based techniques that promote recovery and improve mobility.</p></div>
+          </li>
+        </ul>
+        <div class="care-feature-image">
+          <img src="{% static 'image/hero.png' %}" alt="Client relaxing during a spa wellness session">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== THERAPISTS ===================== -->
+<section id="team" class="bg-beige">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Our Team</span>
+      <h2>Meet <span class="accent">Our Therapists</span></h2>
+      <p>Experienced professionals dedicated to your wellness and recovery.</p>
+    </div>
+
+    <div class="therapist-carousel reveal" aria-roledescription="carousel" aria-label="Our therapists">
+      <div class="therapist-track">
+        {% for t in therapists %}
+        <article class="therapist-card">
+          <div class="therapist-info">
+            <div class="therapist-head">
+              <div>
+                <h3>{{ t.name }}</h3>
+                <span class="role">{{ t.experience }} years experience</span>
+              </div>
+              <div class="rating">
+                <strong><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg>{{ t.rating }}</strong>
+                <small>({{ t.customers }} Customers)</small>
+              </div>
+            </div>
+            <ul class="therapist-tags">
+              {% for tag in t.tags %}<li>{{ tag }}</li>{% endfor %}
+            </ul>
+            <a href="#contact" class="btn therapist-book">Book with {{ t.name }}</a>
+          </div>
+          <div class="therapist-photo"><img src="{% static t.photo %}" alt="Portrait of {{ t.name }}, massage therapist"></div>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="therapist-dots" role="group" aria-label="Choose therapists to show"></div>
+  </div>
+</section>
+
+<!-- ===================== PRICING / WELLNESS ===================== -->
+<section id="wellness">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Pricing Plan Table</span>
+      <h2>Wellness That <span class="accent">Fits Your Lifestyle</span></h2>
+      <p>Enjoy exclusive savings, priority scheduling, and consistent care with a membership designed to keep you feeling your best all year.</p>
+    </div>
+
+    <div class="pricing-toggle reveal">
+      <span>Monthly</span>
+      <button class="toggle-switch" aria-label="Toggle monthly or yearly pricing"></button>
+      <span>Yearly</span>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3>Basic</h3>
+        <p class="price-card-desc">Perfect for occasional visitors</p>
+        <div class="price-tag"><span class="amount">$99</span><span class="period">/month</span></div>
+        <a href="#contact" class="btn btn-outline btn-block">Choose Plan</a>
+        <ul class="price-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> 2 sessions per month</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> 10% discount on services</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Priority scheduling</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Exclusive member events</li>
+        </ul>
+      </div>
+
+      <div class="price-card featured reveal">
+        <h3>Premium</h3>
+        <p class="price-card-desc">For regular wellness enthusiasts</p>
+        <div class="price-tag"><span class="amount">$179</span><span class="period">/month</span></div>
+        <a href="#contact" class="btn btn-light btn-block">Choose Plan</a>
+        <ul class="price-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> 4 sessions per month</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> 20% discount on services</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Priority scheduling</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Exclusive member events</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Free consultations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Wellness tracking</li>
+        </ul>
+      </div>
+
+      <div class="price-card reveal">
+        <h3>Elite</h3>
+        <p class="price-card-desc">Maximum wellness commitment</p>
+        <div class="price-tag"><span class="amount">$299</span><span class="period">/month</span></div>
+        <a href="#contact" class="btn btn-outline btn-block">Choose Plan</a>
+        <ul class="price-features">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Unlimited sessions</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> 30% discount on services</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Priority scheduling</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Exclusive member events</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Free consultations</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Wellness tracking</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Personal therapist</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> VIP lounge access</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section id="offers" class="tm-section">
+  <div class="container">
+    <div class="tm-head reveal">
+      <div>
+        <span class="eyebrow">Our Testimonials</span>
+        <h2>Trusted by <span class="accent">Thousands Seeking</span><br>Better Health</h2>
+      </div>
+      <p>Read real stories from clients who have reduced pain, improved mobility, and made wellness part of their routine.</p>
+    </div>
+  </div>
+
+  <!-- Two full-width rows that drift in opposite directions (script.js repeats the
+       items so the loop is seamless). Photos: static/image/testimonial-media-1..4.jpg -->
+  <div class="tm-rows" role="region" aria-label="Client testimonials">
+    <div class="tm-row tm-row--a">
+      <div class="tm-track">
+        <div class="tm-media"><img src="{% static 'image/testimonial-1.jpg' %}" alt="Therapist giving a relaxing back massage" loading="lazy" width="760" height="500"></div>
+        <article class="tm-card">
+          <span class="tm-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="tm-quote">Wellnest has completely transformed my approach to wellness. The therapists are incredibly skilled, and I finally feel relief from my chronic neck pain. Highly recommend!</p>
+          <div class="tm-foot">
+            <div class="tm-person">
+              <span class="tm-avatar" aria-hidden="true">SJ</span>
+              <div><div class="name">Sarah Johnson</div><div class="role">Marketing Manager</div></div>
+            </div>
+            <div class="tm-rating"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55L2.48 9.42l6.58-.96L12 2.5z"/></svg><span>4.9</span></div>
+          </div>
+        </article>
+        <div class="tm-media"><img src="{% static 'image/testimonial-2.jpg' %}" alt="Caregiver holding hands with a client at home" loading="lazy" width="760" height="500"></div>
+        <article class="tm-card">
+          <span class="tm-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="tm-quote">As an athlete, Wellnest stands out for their personalized approach to sports recovery. My performance has noticeably improved.</p>
+          <div class="tm-foot">
+            <div class="tm-person">
+              <span class="tm-avatar" aria-hidden="true">MC</span>
+              <div><div class="name">Michael Chen</div><div class="role">Fitness Coach</div></div>
+            </div>
+            <div class="tm-rating"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55L2.48 9.42l6.58-.96L12 2.5z"/></svg><span>4.9</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="tm-row tm-row--b">
+      <div class="tm-track">
+        <article class="tm-card">
+          <span class="tm-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="tm-quote">My membership is worth every penny. Convenient scheduling, professional therapists, and a calming atmosphere. It&rsquo;s my weekly escape from stress.</p>
+          <div class="tm-foot">
+            <div class="tm-person">
+              <span class="tm-avatar" aria-hidden="true">JD</span>
+              <div><div class="name">Jessica Davis</div><div class="role">Working Professional</div></div>
+            </div>
+            <div class="tm-rating"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55L2.48 9.42l6.58-.96L12 2.5z"/></svg><span>4.9</span></div>
+          </div>
+        </article>
+        <div class="tm-media"><img src="{% static 'image/testimonial-media-3.jpg' %}" alt="Caregiver walking with a client outdoors at sunset" loading="lazy" width="760" height="500"></div>
+        <article class="tm-card">
+          <span class="tm-quote-mark" aria-hidden="true">&ldquo;</span>
+          <p class="tm-quote">Outstanding service from start to finish. The booking process is seamless, and the therapists truly understand what your body needs. Thank you for helping me recover.</p>
+          <div class="tm-foot">
+            <div class="tm-person">
+              <span class="tm-avatar" aria-hidden="true">RW</span>
+              <div><div class="name">Robert Williams</div><div class="role">Executive</div></div>
+            </div>
+            <div class="tm-rating"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.52l-5.88 3.09 1.12-6.55L2.48 9.42l6.58-.96L12 2.5z"/></svg><span>4.9</span></div>
+          </div>
+        </article>
+        <div class="tm-media"><img src="{% static 'image/testimonial-media-4.jpg' %}" alt="Smiling caregiver with an elderly client" loading="lazy" width="760" height="500"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT / BOOKING ===================== -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="eyebrow">Book Your Visit</span>
+        <h2>Start Your Wellness<br><span class="accent">Journey Today</span></h2>
+        <p>Book your personalized massage session in just a few clicks and experience the difference of expert therapeutic care.</p>
+        <a href="#wellness" class="btn btn-outline">View Membership Plans</a>
+
+        <div class="contact-detail-list">
+          <div class="contact-detail">
+            <span class="label">Talk With Us</span>
+            <div class="contact-detail-row"><span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 2.9a2 2 0 01-.5 2.1L8 9.9a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.9.5 2.9.6a2 2 0 011.8 2z"/></svg></span><span class="value">+977 9746674687</span></div>
+          </div>
+          <div class="contact-detail">
+            <span class="label">Email Address</span>
+            <div class="contact-detail-row"><span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="value">himalyan.healers@gmail.com</span></div>
+          </div>
+          <div class="contact-detail">
+            <span class="label">Working Hours (Mon To Sat)</span>
+            <div class="contact-detail-row"><span class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><span class="value">Mon–Sat, 9am to 7pm</span></div>
+          </div>
+        </div>
+      </div>
+
+      <form class="booking-form reveal" method="post" action="{% url 'home' %}">
+        {% csrf_token %}
+        <div class="form-row">
+          <div class="form-field"><label for="first_name">First Name</label><input id="first_name" placeholder="Name" name="first_name" type="text" required></div>
+          <div class="form-field"><label for="last_name">Last Name</label><input id="last_name" placeholder="Last name" name="last_name" type="text" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label for="email">Email</label><input id="email" placeholder="E-mail Address*" name="email" type="email" required></div>
+          <div class="form-field"><label for="phone">Phone</label><input id="phone" placeholder="Phone*" name="phone" type="tel" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="treatment">Preferred Treatment</label>
+            <select id="treatment" name="treatment">
+              <option value="" disabled selected>Preferred Treatment</option>
+              {% for t in treatments %}
+                <option value="{{ t }}">{{ t }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-field"><label for="preferred_date">Preferred Date &amp; Time</label><input id="preferred_date" name="preferred_date" type="date"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full"><label for="message">Message</label><textarea id="message" name="message" rows="3" placeholder="Enter your message here..."></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Schedule Appointment</button>
+        <p class="form-note">We'll confirm your appointment by email within 24 hours.</p>
+      </form>
+    </div>
+
+    <div class="contact-media reveal">
+      <div class="contact-media-frame"><img src="{% static 'image/booking.jpg' %}" alt="Wide shot of a therapeutic back massage in a spa"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="container">
+      <div class="footer-banner">
+        <div class="footer-media"><img src="{% static 'image/footer.png' %}" alt="" aria-hidden="true" loading="lazy"></div>
+        <div class="footer-giant-mark" aria-hidden="true">
+          <img src="{% static 'image/logo.png' %}" alt="">
+          <span>Wellnest</span>
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <a href="#top" class="brand-logo brand-logo--footer" aria-label="Sewa By Himalayan Healers — back to top"><img src="{% static 'image/logo.png' %}" alt="Sewa By Himalayan Healers"></a>
+          </div>
+          <p style="color:rgba(255,255,255,0.6); font-size:14px; max-width:260px;">Premium therapeutic massage designed for your wellness and recovery.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 9h3V6h-3a4 4 0 00-4 4v2H8v3h2v6h3v-6h3l1-3h-4v-2a1 1 0 011-1z"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4.5a2.5 2.5 0 015 0V17M11 10.5V17"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">Deep Tissue</a></li>
+            <li><a href="#services">Relaxation</a></li>
+            <li><a href="#services">Sports Recovery</a></li>
+            <li><a href="#services">Prenatal Massage</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#team">Therapists</a></li>
+            <li><a href="#wellness">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>Contact</h4>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> +977 9746674687</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 6l10 7 10-7"/></svg> ydipakkumar360@gmail.com</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg> Kathmandu, Nepal</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Sewa By Himalyan Healers. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="{% static 'js/script.js' %}?v=13"></script>
+</body>
+</html>
