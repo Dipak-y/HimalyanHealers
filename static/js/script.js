@@ -174,10 +174,8 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('load', buildAll);
   })();
 
-  /* Sticky header: kept transparent at all scroll positions (matches the
-     hero look). The 'scrolled' class still gets toggled (used to collapse
-     the hero-header's negative overlap margin once you leave the hero),
-     it just no longer paints a background/blur on the header itself. */
+  /* Keep the fixed header compact while scrolling. The nav-solid class
+     adds a light background after the hero leaves view for contrast. */
   var header = document.querySelector('.site-header');
   function onScroll() {
     if (window.scrollY > 40) {
@@ -185,21 +183,19 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       header.classList.remove('scrolled');
     }
+    header.classList.toggle('nav-solid', window.scrollY > 40);
   }
   window.addEventListener('scroll', onScroll);
   onScroll();
 
-  /* Nav pill (About/Membership/Blog/Careers): stays the translucent
-     look from the hero until the hero has fully scrolled out of view,
-     then switches to solid white + dark text for the lighter sections
-     below. Tied to hero visibility (not scroll distance) since the
-     hero stays pinned on screen for a while as you scroll. */
+  /* Keep the nav pill solid after scrolling starts, including while the
+     pinned hero remains visible. */
   (function () {
     var hero = document.querySelector('.hero');
     if (!hero || !window.IntersectionObserver) return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        header.classList.toggle('nav-solid', !entry.isIntersecting);
+        header.classList.toggle('nav-solid', window.scrollY > 40 || !entry.isIntersecting);
       });
     }, { threshold: 0, rootMargin: '-90px 0px 0px 0px' });
     io.observe(hero);
@@ -438,13 +434,11 @@ document.addEventListener('DOMContentLoaded', function () {
   var priceToggle = document.querySelector('.toggle-switch');
   var amounts = document.querySelectorAll('.price-tag .amount');
   var periods = document.querySelectorAll('.price-tag .period');
-  var monthly = [99, 179, 299];
-  var yearly = [950, 1720, 2870];
   if (priceToggle) {
     priceToggle.addEventListener('click', function () {
       var isYearly = priceToggle.classList.toggle('yearly');
       amounts.forEach(function (el, i) {
-        el.textContent = '$' + (isYearly ? yearly[i] : monthly[i]);
+        el.textContent = 'Rs ' + el.getAttribute(isYearly ? 'data-yearly' : 'data-monthly');
       });
       periods.forEach(function (el) {
         el.textContent = isYearly ? '/year' : '/month';
