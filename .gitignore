@@ -25,3 +25,5 @@ media/
 # OS
 .DS_Store
 Thumbs.dbgit rm -r --cached venv
+# Netlify static build output
+dist/
