@@ -857,8 +857,8 @@ section { padding: var(--section-padding) 0; }
   margin-top: 60px;
   overflow: visible;
 }
-.contact-media-frame { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 11/4; }
-.contact-media-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.contact-media-frame { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 14/9; }
+.contact-media-frame img { width: 75%; height: 80%; object-fit: contain; display: block; }
 
 .alert-banner {
   max-width: var(--container-width);
@@ -1048,9 +1048,7 @@ section { padding: var(--section-padding) 0; }
 .mobile-nav a { font-family: var(--font-display); font-size: 28px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.12); }
 .mobile-nav a.brand-logo { border-bottom: 0; padding: 0; }
 
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
+/* Responsive */
 
 @media (max-width: 1024px) {
   h2 { font-size: 34px; }
